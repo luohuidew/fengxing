@@ -6,7 +6,6 @@ import router from './router'
 import store from './store'
 
 Vue.use(Element, {
-  size: 'medium'
 })
 
 Vue.config.productionTip = false

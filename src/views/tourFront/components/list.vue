@@ -92,6 +92,9 @@ export default {
   },
   computed: {
   },
+  created() {
+    alert(this.$route.params.searchValue)
+  },
   methods: {
     projectClick(id) {
       this.$router.push({name: 'detail', params: {id: id}})

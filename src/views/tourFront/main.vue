@@ -7,9 +7,9 @@
     <el-col :span="10" style="padding-top: 50px">
       <el-menu :default-active="navType" :router="true" mode="horizontal" @select="handleSelect">
         <el-menu-item index="0" :route="{path: '/'}">首页</el-menu-item>
-        <el-menu-item index="tuanJian" :route="{name: 'tuanJian', params: {navType: 'tuanJian'}}">团建方案</el-menu-item>
-        <el-menu-item index="lvYou" :route="{name: 'lvYou', params: {navType: 'lvYou'}}">旅游方案</el-menu-item>
-        <el-menu-item index="huoDong" :route="{name: 'huoDong', params: {navType: 'huoDong'}}">活动方案</el-menu-item>
+        <el-menu-item index="tuanJian" :route="{name: 'tuanJian'}">团建方案</el-menu-item>
+        <el-menu-item index="lvYou" :route="{name: 'lvYou'}">旅游方案</el-menu-item>
+        <el-menu-item index="huoDong" :route="{name: 'huoDong'}">活动方案</el-menu-item>
       </el-menu>
     </el-col>
     <el-col :span="4" style="padding-top: 60px">

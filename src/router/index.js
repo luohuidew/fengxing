@@ -17,15 +17,16 @@ export const constantRouterMap = [
     name: 'main',
     component: _import('tourFront/main'),
     children: [
-      {path: 'tuanJian', name: 'tuanJian', component: _import('tourFront/listTuanJian')},
-      {path: 'lvYou', name: 'lvYou', component: _import('tourFront/ListLvYou')},
-      {path: 'huoDong', name: 'huoDong', component: _import('tourFront/ListHuoDong')},
+      {path: 'tuanJian/:searchValue', name: 'tuanJian', component: _import('tourFront/listTuanJian')},
+      {path: 'lvYou/:searchValue', name: 'lvYou', component: _import('tourFront/ListLvYou')},
+      {path: 'huoDong/:searchValue', name: 'huoDong', component: _import('tourFront/ListHuoDong')},
       {path: 'detail', name: 'detail', component: _import('tourFront/detail')}
     ]
   }
 ]
 
 export default new Router({
+  mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
