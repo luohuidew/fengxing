@@ -17,9 +17,10 @@ export const constantRouterMap = [
     name: 'main',
     component: _import('tourFront/main'),
     children: [
-      {path: 'tuanJian/:searchValue', name: 'tuanJian', component: _import('tourFront/listTuanJian')},
-      {path: 'lvYou/:searchValue', name: 'lvYou', component: _import('tourFront/ListLvYou')},
-      {path: 'huoDong/:searchValue', name: 'huoDong', component: _import('tourFront/ListHuoDong')},
+      {path: 'tuanJian', name: 'tuanJian', component: _import('tourFront/listTuanJian')},
+      {path: 'lvYou', name: 'lvYou', component: _import('tourFront/ListLvYou')},
+      {path: 'huoDong', name: 'huoDong', component: _import('tourFront/ListHuoDong')},
+      {path: 'memory', name: 'memory', component: _import('tourFront/ListMemory')},
       {path: 'detail', name: 'detail', component: _import('tourFront/detail')}
     ]
   }

@@ -1,5 +1,5 @@
 <template>
-    <div class = 'search'>
+    <div class = 'search search_wap'>
       <el-input type="text" placeholder="搜索景点/目的/活动类型" v-model="searchValue" class="input-with-select">
         <template slot="append" >
           <el-select v-model="categoryId"  class="search_select">
@@ -35,7 +35,8 @@ export default {
   computed: {
   },
   methods: {
-    searchMeth(id) {
+    searchMeth() {
+      const id = this.categoryId
       if (id === '1') {
         this.$router.push({name: 'tuanJian', params: {searchValue: this.searchValue}})
       } else if (id === '2') {

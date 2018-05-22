@@ -1,43 +1,37 @@
 <template>
- <el-container style="height: 100%;">
-   <el-header height="130px">
-    <el-col :span="8">
-      <img :src="logoPic" style="width: 260px;height: 120px"/>
-    </el-col>
-    <el-col :span="10" style="padding-top: 50px">
-      <el-menu :default-active="navType" :router="true" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="0" :route="{path: '/'}">首页</el-menu-item>
-        <el-menu-item index="tuanJian" :route="{name: 'tuanJian'}">团建方案</el-menu-item>
-        <el-menu-item index="lvYou" :route="{name: 'lvYou'}">旅游方案</el-menu-item>
-        <el-menu-item index="huoDong" :route="{name: 'huoDong'}">活动方案</el-menu-item>
-      </el-menu>
-    </el-col>
-    <el-col :span="4" style="padding-top: 60px">
-      <el-input type="text" placeholder="搜索景点/目的/活动类型" v-model="searchKey" class="input-with-select">
-        <el-select v-model="categoryId" slot="prepend">
-          <el-option label="全部" value="-1"></el-option>
-          <el-option
-            v-for="item in categoryList"
-            :key="item.id"
-            :label="item.alias"
-            :value="item.id">
-          </el-option>
-        </el-select>
-        <el-button slot="append" icon="el-icon-search"></el-button>
-      </el-input>
-    </el-col>
-  </el-header>
-  <el-main style="padding-top: 0px;">
-    <div style="background:linear-gradient(to left,#efefef,#b6b6b6,#efefef);height:2px;"></div>
+<div>
+  <header>
+    <el-row class="head_wap">
+      <el-col :span="4">
+        <router-link to="/"><img :src="logoPic" width="154" class="logo"/></router-link>
+      </el-col>
+      <el-col :span="12">
+        <!--<el-menu :default-active="navType" :router="true" mode="horizontal" @select="handleSelect">-->
+          <!--<el-menu-item index="0" :route="{path: '/'}">首页</el-menu-item>-->
+          <!--<el-menu-item index="tuanJian" :route="{name: 'tuanJian'}">团建方案</el-menu-item>-->
+          <!--<el-menu-item index="lvYou" :route="{name: 'lvYou'}">旅游方案</el-menu-item>-->
+          <!--<el-menu-item index="huoDong" :route="{name: 'huoDong'}">活动方案</el-menu-item>-->
+        <!--</el-menu>-->
+        <ul>
+          <li><router-link to="/main/tuanJian">团建方案</router-link></li>
+          <li><router-link to="/main/lvYou">旅游方案</router-link></li>
+          <li><router-link to="/main/huoDong">活动方案</router-link></li>
+          <li><router-link to="/main/memory">美好回忆</router-link></li>
+        </ul>
+      </el-col>
+      <el-col :span="8" >
+        <search></search>
+      </el-col>
+    </el-row>
+  </header>
+  <el-main >
     <router-view/>
   </el-main>
-  <el-footer height="36px">
-    &nbsp;
-  </el-footer>
-</el-container>
+</div>
 </template>
 
 <script>
+import search from './components/search'
 export default {
   name: 'mainPage',
   data() {
@@ -53,6 +47,9 @@ export default {
       searchKey: ''
     }
   },
+  components: {
+    search
+  },
   created() {
     this.navType = this.$route.params.navType
   },
@@ -63,34 +60,72 @@ export default {
   }
 }
 </script>
+<style scoped>
+  header {
+    height: 100px;
+    border-bottom: 1px solid #eeeff2;
+    box-shadow: 0px 1px 2px  #eeeff2;
+  }
+  .head_wap {
+    height: 100px;
+    width: 1100px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+  }
+  .head_wap .logo {
+    line-height: 100px;
+  }
+  .head_wap ul {
+    padding: 0px 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  .head_wap ul li {
+    list-style: none;
+    flex: 1;
+  }
+  .head_wap ul li a{display: block;
+  height: 100px;
+  line-height: 100px;text-align:center;text-decoration: none;
+  }
+  .head_wap ul li a.router-link-active {
+    background-color: #1993e8;
+    color: #fff;
+  }
+  .head_wap ul li a:active{color: #000}
+
+</style>
+
 <style>
-  .el-header {
-    background-color: #FFFFFF;
-    color: #333;
-    text-align: center;
-    padding-top: 5px;
-  }
-  .el-main {
-    background-color: #FFFFFF;
-    color: #333;
-    text-align: center;
-    height: auto;
-  }
-  .el-footer {
-    background-color: #FFFFFF;
-    color: #333;
-    text-align: center;
-  }
-   .el-select .el-input {
-    width: 80px;
-  }
-  .input-with-select .el-input-group__prepend {
-    background-color: #fff;
-  }
-  .el-menu--horizontal {
-    border-bottom: solid 0px #e6e6e6;
-  }
-  .el-menu-item {
-    font-size: 30px;
-  }
+  /*.el-header {*/
+    /*background-color: #FFFFFF;*/
+    /*color: #333;*/
+    /*text-align: center;*/
+    /*padding-top: 5px;*/
+  /*}*/
+  /*.el-main {*/
+    /*background-color: #FFFFFF;*/
+    /*color: #333;*/
+    /*text-align: center;*/
+    /*height: auto;*/
+  /*}*/
+  /*.el-footer {*/
+    /*background-color: #FFFFFF;*/
+    /*color: #333;*/
+    /*text-align: center;*/
+  /*}*/
+   /*.el-select .el-input {*/
+    /*width: 80px;*/
+  /*}*/
+  /*.input-with-select .el-input-group__prepend {*/
+    /*background-color: #fff;*/
+  /*}*/
+  /*.el-menu--horizontal {*/
+    /*border-bottom: solid 0px #e6e6e6;*/
+  /*}*/
+  /*.el-menu-item {*/
+    /*font-size: 30px;*/
+  /*}*/
 </style>

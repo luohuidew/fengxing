@@ -1,6 +1,6 @@
 <template>
   <div>
-    <project-list :navType="navType"></project-list>
+    <project-list navType="active"></project-list>
   </div>
 </template>
 
@@ -12,12 +12,10 @@ export default {
   },
   data() {
     return {
-      navType: ''
     }
   },
   created() {
     // console.log('detail path:' + this.$route.path)
-    this.navType = this.$route.params.navType
   },
   methods: {
 

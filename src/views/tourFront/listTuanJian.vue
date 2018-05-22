@@ -1,6 +1,6 @@
 <template>
   <div>
-    <project-list :navType="navType"></project-list>
+    <project-list navType="group"></project-list>
   </div>
 </template>
 
@@ -12,12 +12,12 @@ export default {
   },
   data() {
     return {
-      navType: ''
     }
   },
   created() {
-    console.log('detail path:' + this.$route.path)
-    this.navType = this.$route.params.navType
+  //    console.log('detail path:' + this.$route.path)
+  //    const paths = this.$route.path.split('/').pop()
+  //    this.navType = this.$route.params.navType
   },
   methods: {
 

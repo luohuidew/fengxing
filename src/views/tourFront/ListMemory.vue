@@ -1,12 +1,12 @@
 <template>
   <div>
-    <project-list navType="lvyou"></project-list>
+    <project-list navType="memory"></project-list>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'listLYou',
+  name: 'listMemory',
   components: {
     'project-list': () => import('./components/list')
   },
