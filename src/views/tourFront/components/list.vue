@@ -51,7 +51,7 @@ export default {
         {
           id: '1',
           name: '不到长城非好汉',
-          coverImgUrl: '../../assets/img/shouye2.png',
+          coverImgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1527075151&di=f9f0bfdeb1a845389049d04e5d3c551c&src=http://media-cdn.tripadvisor.com/media/photo-s/03/2b/29/c7/tupuna-safari.jpg',
           score: 4,
           summary:
             '长城（Greate Wall），万里长城，是中国古代的军事防御工程，是一道高大、坚固'
@@ -67,7 +67,7 @@ export default {
         {
           id: '3',
           name: '不到长城非好汉',
-          coverImgUrl: '../../assets/img/shouye2.png',
+          coverImgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1527075151&di=f9f0bfdeb1a845389049d04e5d3c551c&src=http://media-cdn.tripadvisor.com/media/photo-s/03/2b/29/c7/tupuna-safari.jpg',
           score: 5,
           summary:
             '长城（Greate Wall），万里长城，是中国古代的军事防御工程，是一道高大、坚固'
@@ -75,7 +75,7 @@ export default {
         {
           id: '1',
           name: '不到长城非好汉',
-          coverImgUrl: '../../assets/img/shouye2.png',
+          coverImgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1527075151&di=f9f0bfdeb1a845389049d04e5d3c551c&src=http://media-cdn.tripadvisor.com/media/photo-s/03/2b/29/c7/tupuna-safari.jpg',
           score: 4,
           summary:
             '长城（Greate Wall），万里长城，是中国古代的军事防御工程，是一道高大、坚固'
@@ -83,7 +83,7 @@ export default {
         {
           id: '2',
           name: '不到长城非好汉',
-          coverImgUrl: '../../../assets/img/group.png',
+          coverImgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1527075151&di=f9f0bfdeb1a845389049d04e5d3c551c&src=http://media-cdn.tripadvisor.com/media/photo-s/03/2b/29/c7/tupuna-safari.jpg',
           score: 5,
           summary:
             '长城（Greate Wall），万里长城，是中国古代的军事防御工程，是一道高大、坚固'
@@ -91,7 +91,7 @@ export default {
         {
           id: '3',
           name: '不到长城非好汉',
-          coverImgUrl: '../../assets/img/shouye2.png',
+          coverImgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1527075151&di=f9f0bfdeb1a845389049d04e5d3c551c&src=http://media-cdn.tripadvisor.com/media/photo-s/03/2b/29/c7/tupuna-safari.jpg',
           score: 5,
           summary:
             '长城（Greate Wall），万里长城，是中国古代的军事防御工程，是一道高大、坚固'
@@ -179,8 +179,8 @@ export default {
 }
 </script>
 <style scoped>
-  .list {width: 1100px;margin: 0px auto}
-  .list{font-size: 0px;padding-bottom: 30px;overflow: hidden}
+  .list {width: 860px;margin: 0px auto;}
+  .list{font-size: 0px;padding-bottom: 30px;overflow: hidden;}
   .list li dl{font-size: 14px;}
   .list li .title {
     display: inline-block;
@@ -216,14 +216,15 @@ export default {
     overflow: hidden;
     text-overflow:ellipsis;
   }
+  .list ul {padding: 0px}
   .list ul li{
     margin-top: 30px;
     list-style: none;
     width: 270px;
     height: 254px;
-    box-shadow: 0px 1px 3px #666;
+    box-shadow: 0px 1px 5px #666;
     float: left;
-    margin-left: 20px;
+    margin-left: 24px;
   }
   .list ul li img{width: 270px;height: 180px;display: inline-block;}
   .list ul li:nth-child(3n+1){

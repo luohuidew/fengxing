@@ -1,22 +1,40 @@
 <template>
 <div>
-    <head></head>
-    <el-main >
-    <router-view/>
-    <Navigation></Navigation>
-  </el-main>
+  <header>
+    <el-row class="head_wap">
+      <el-col :span="4">
+        <router-link to="/"><img :src="logoPic" width="154" class="logo"/></router-link>
+      </el-col>
+      <el-col :span="12">
+        <!--<el-menu :default-active="navType" :router="true" mode="horizontal" @select="handleSelect">-->
+          <!--<el-menu-item index="0" :route="{path: '/'}">首页</el-menu-item>-->
+          <!--<el-menu-item index="tuanJian" :route="{name: 'tuanJian'}">团建方案</el-menu-item>-->
+          <!--<el-menu-item index="lvYou" :route="{name: 'lvYou'}">旅游方案</el-menu-item>-->
+          <!--<el-menu-item index="huoDong" :route="{name: 'huoDong'}">活动方案</el-menu-item>-->
+        <!--</el-menu>-->
+        <ul>
+          <li><router-link to="/main/tuanJian">团建方案</router-link></li>
+          <li><router-link to="/main/lvYou">旅游方案</router-link></li>
+          <li><router-link to="/main/huoDong">活动方案</router-link></li>
+          <li><router-link to="/main/memory">美好回忆</router-link></li>
+        </ul>
+      </el-col>
+      <el-col :span="8" >
+        <search></search>
+      </el-col>
+    </el-row>
+  </header>
 </div>
 </template>
 
 <script>
-import search from './components/search'
-import head from './components/head'
+import search from './search'
 export default {
   name: 'mainPage',
   data() {
     return {
       navType: 'tuanJian',
-      logoPic: require('../../assets/img/logo.png'),
+      logoPic: require('../../../assets/img/logo.png'),
       categoryId: '-1',
       categoryList: [
         { id: '1', alias: '团建' },
@@ -27,9 +45,7 @@ export default {
     }
   },
   components: {
-    search,
-    head,
-    'Navigation': () => import('./components/Navigation')
+    search
   },
   created() {
     this.navType = this.$route.params.navType
