@@ -21,7 +21,7 @@ export const constantRouterMap = [
       {path: 'lvYou', name: 'lvYou', component: _import('tourFront/ListLvYou')},
       {path: 'huoDong', name: 'huoDong', component: _import('tourFront/ListHuoDong')},
       {path: 'memory', name: 'memory', component: _import('tourFront/ListMemory')},
-      {path: 'detail', name: 'detail', component: _import('tourFront/detail')}
+      {path: 'detail', name: 'detail', component: _import('tourFront/components/detail')}
     ]
   }
 ]

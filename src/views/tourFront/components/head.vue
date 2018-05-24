@@ -6,17 +6,11 @@
         <router-link to="/"><img :src="logoPic" width="154" class="logo"/></router-link>
       </el-col>
       <el-col :span="12">
-        <!--<el-menu :default-active="navType" :router="true" mode="horizontal" @select="handleSelect">-->
-          <!--<el-menu-item index="0" :route="{path: '/'}">首页</el-menu-item>-->
-          <!--<el-menu-item index="tuanJian" :route="{name: 'tuanJian'}">团建方案</el-menu-item>-->
-          <!--<el-menu-item index="lvYou" :route="{name: 'lvYou'}">旅游方案</el-menu-item>-->
-          <!--<el-menu-item index="huoDong" :route="{name: 'huoDong'}">活动方案</el-menu-item>-->
-        <!--</el-menu>-->
         <ul>
-          <li><router-link to="/main/tuanJian">团建方案</router-link></li>
-          <li><router-link to="/main/lvYou">旅游方案</router-link></li>
-          <li><router-link to="/main/huoDong">活动方案</router-link></li>
-          <li><router-link to="/main/memory">美好回忆</router-link></li>
+          <li><router-link to="/main/tuanJian" :class="{'router-link-active': typeClass==='tuanJian'}">团建方案</router-link></li>
+          <li><router-link to="/main/lvYou" :class="{'router-link-active': typeClass==='lvYou'}">旅游方案</router-link></li>
+          <li><router-link to="/main/huoDong" :class="{'router-link-active': typeClass==='huoDong'}">活动方案</router-link></li>
+          <li><router-link to="/main/memory" :class="{'router-link-active': typeClass==='memory'}">美好回忆</router-link></li>
         </ul>
       </el-col>
       <el-col :span="8" >
@@ -29,11 +23,12 @@
 
 <script>
 import search from './search'
+import bus from '@/utils/bus'
 export default {
   name: 'mainPage',
   data() {
     return {
-      navType: 'tuanJian',
+      typeClass: '',
       logoPic: require('../../../assets/img/logo.png'),
       categoryId: '-1',
       categoryList: [
@@ -48,7 +43,9 @@ export default {
     search
   },
   created() {
-    this.navType = this.$route.params.navType
+    bus.$on('NAGATION', (url) => {
+      this.typeClass = url
+    })
   },
   methods: {
     handleSelect(key, keyPath) {

@@ -18,7 +18,7 @@
     </el-col>
   </el-header>
   <el-main style="padding-top: 0px;" class="banner_wrap">
-        <el-carousel height="600px" :interval="5000" arrow="always" >
+        <el-carousel class="banner_content" :interval="5000" arrow="always" >
           <el-carousel-item v-for="item in shouYePics" :key="item.id">
           <img :src="item.src" style="width: 1400px;height: 100%"/>
           </el-carousel-item>
@@ -58,6 +58,11 @@ export default {
 }
 </script>
 <style scoped>
+  .banner_content {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+  }
   .banner_wrap{width: 1100px;margin: 0px auto;position: relative;
   padding: 0px;}
   .banner_wrap .leftTop{

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <head></head>
+    <Heads></Heads>
     <el-main >
     <router-view/>
     <Navigation></Navigation>
@@ -10,7 +10,7 @@
 
 <script>
 import search from './components/search'
-import head from './components/head'
+import Heads from './components/head'
 export default {
   name: 'mainPage',
   data() {
@@ -28,7 +28,7 @@ export default {
   },
   components: {
     search,
-    head,
+    Heads,
     'Navigation': () => import('./components/Navigation')
   },
   created() {

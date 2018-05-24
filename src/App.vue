@@ -11,6 +11,7 @@ export default {
 </script>
 <style>
   body {margin: 0px;}
+  .el-main {padding: 0px;}
   .search_wap .el-input__suffix {
     right: -4px;
   }
@@ -28,6 +29,10 @@ export default {
   }
   .search_wap  .el-input-group__append{
     padding: 0px;
+    border-right: none;
+  }
+  .el-carousel__container {
+    height: 600px;
   }
   ul li {
     list-style: none;

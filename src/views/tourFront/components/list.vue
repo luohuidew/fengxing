@@ -172,8 +172,10 @@ export default {
       // let routeData = this.$router.resolve({
       //   name: 'detail'
       // })
-      window.location.href = `http://${window.location.host}/detail.html#id=${id}`
-      // window.open(url, '_blank')
+      const url = this.$route.path.split('/').pop()
+      this.$router.push({name: 'detail', params: { id, url }})
+      // window.location.href = `http://${window.location.host}/detail.html#id=${id}`
+      // window.open(`http://${window.location.host}/#/main/detail`, '_blank')
     }
   }
 }
