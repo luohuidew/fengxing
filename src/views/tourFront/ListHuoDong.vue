@@ -1,6 +1,6 @@
 <template>
   <div>
-    <project-list navType="active"></project-list>
+    <project-list navType="active"  :searchValue = searchValue></project-list>
   </div>
 </template>
 
@@ -12,10 +12,14 @@ export default {
   },
   data() {
     return {
+      searchValue: ''
     }
   },
   created() {
-    // console.log('detail path:' + this.$route.path)
+    // alert(this.$route.params.searchValue)
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.searchValue = to.query.searchValue
   },
   methods: {
 

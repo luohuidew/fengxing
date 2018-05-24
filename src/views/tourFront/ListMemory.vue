@@ -1,6 +1,6 @@
 <template>
   <div>
-    <project-list navType="memory"></project-list>
+    <project-list navType="memory" :searchValue = searchValue></project-list>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   },
   data() {
     return {
+      searchValue: ''
     }
   },
   created() {
@@ -19,6 +20,9 @@ export default {
   },
   methods: {
 
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.searchValue = to.query.searchValue
   }
 }
 </script>

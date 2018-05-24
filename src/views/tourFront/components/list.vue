@@ -43,7 +43,7 @@
 <script>
 export default {
   name: 'list',
-  props: ['navType'],
+  props: ['navType', 'searchValue'],
   data() {
     return {
       value1: 4.7,
@@ -162,8 +162,12 @@ export default {
   computed: {
   },
   created() {
-  //    alert(this.$route.params.searchValue)
-  //    alert(this.navType);
+    alert('初始化list' + this.navType + this.$route.query.searchValue)
+  },
+  watch: {
+    searchValue(val) {
+      alert(val)
+    }
   },
   methods: {
     itemClick(id) {
@@ -177,6 +181,8 @@ export default {
       // window.location.href = `http://${window.location.host}/detail.html#id=${id}`
       // window.open(`http://${window.location.host}/#/main/detail`, '_blank')
     }
+  },
+  destroyed() {
   }
 }
 </script>

@@ -28,7 +28,8 @@ export default {
       categoryList: [
         { id: '1', alias: '团建' },
         { id: '2', alias: '旅游' },
-        { id: '3', alias: '活动' }
+        { id: '3', alias: '活动' },
+        { id: '4', alias: '回忆' }
       ]
     }
   },
@@ -38,11 +39,13 @@ export default {
     searchMeth() {
       const id = this.categoryId
       if (id === '1') {
-        this.$router.push({name: 'tuanJian', params: {searchValue: this.searchValue}})
+        this.$router.push({name: 'tuanJian', query: {searchValue: this.searchValue}})
       } else if (id === '2') {
-        this.$router.push({name: 'lvYou', params: {searchValue: this.searchValue}})
+        this.$router.push({name: 'lvYou', query: {searchValue: this.searchValue}})
       } else if (id === '3') {
-        this.$router.push({name: 'huoDong', params: {searchValue: this.searchValue}})
+        this.$router.push({name: 'huoDong', query: {searchValue: this.searchValue}})
+      } else if (id === '4') {
+        this.$router.push({name: 'memory', query: {searchValue: this.searchValue}})
       }
     }
   }

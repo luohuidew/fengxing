@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-  .navigation {position: fixed;width: 245px;height: 286px;right: -202px;bottom: 100px;transition: all 0.5s;z-index: 20}
+  .navigation {position: fixed;width: 245px;height: 286px;right: -202px;top:50%;transform:translateY(-60%);transition: all 0.5s;z-index: 90}
   .navigation.move{right: 0px;}
   .navigation .right {
     padding-top: 10px;

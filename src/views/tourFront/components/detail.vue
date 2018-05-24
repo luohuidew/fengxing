@@ -32,6 +32,20 @@
         </div>
       </div>
     </div>
+   <div class="tabs" :class="{'isFixed': isFixeds}" id="searchBar">
+     <ul>
+       <li :class="{'active': tabCont=== 'feature'}" @click="contentSwitch('feature')">特色活动</li>
+       <li :class="{'active': tabCont=== 'trip'}" @click="contentSwitch('trip')">行程介绍</li>
+       <li :class="{'active': tabCont=== 'cost'}" @click="contentSwitch('cost')">费用说明</li>
+       <li :class="{'active': tabCont=== 'tip'}" @click="contentSwitch('tip')">特别提醒</li>
+       <li :class="{'active': tabCont=== 'contact'}" @click="contentSwitch('contact')">联系方式</li>
+     </ul>
+   </div>
+    <div class="contents" v-show="tabCont === 'feature'">特色活动</div>
+    <div class="contents" v-show="tabCont === 'trip'">行程介绍</div>
+    <div class="contents" v-show="tabCont === 'cost'">费用说明</div>
+    <div class="contents" v-show="tabCont === 'tip'">特别提醒</div>
+    <div class="contents" v-show="tabCont === 'contact'">联系方式</div>
   </div>
 </template>
 
@@ -41,9 +55,10 @@ export default {
   name: 'detail',
   data() {
     return {
+      isFixeds: false,
+      tabCont: 'feature',
       score: 5,
       backgroundImg: 'url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527085235826&di=f4b060310b1d3c787d0f43da1c3efcec&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D176e4adf49a98226accc2364e2ebd374%2Fcefc1e178a82b901b63a0b99798da9773812ef82.jpg)',
-      searchBarFixed: false,
       project: {
         id: '6',
         name: '不到长城非好汉',
@@ -64,19 +79,22 @@ export default {
   },
   created() {
     const url = this.$route.params.url
-    bus.$emit('NAGATION', url)
+    bus.$emit('NAGATION', url) // 导航选中
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
+    this.searchBar = document.querySelector('#searchBar').offsetTop
   },
   methods: {
+    contentSwitch(val) {
+      this.tabCont = val
+    },
     handleScroll() {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      var offsetTop = document.querySelector('#searchBar').offsetTop
-      if (scrollTop > offsetTop) {
-        this.searchBarFixed = true
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > this.searchBar) {
+        this.isFixeds = true
       } else {
-        this.searchBarFixed = false
+        this.isFixeds = false
       }
     }
   },
@@ -86,13 +104,49 @@ export default {
 }
 </script>
 <style scoped>
-  .isFixed{
-    width: 100%;
-    z-index:999;
-    top:5px;
-    position:fixed;
-    /* background-color:#00FF00; */
-  }
+.tabs{
+  z-index: 30;
+  position: relative;
+  height: 55px;
+  border-bottom: 10px solid #fff;
+  margin-top: -55px;
+  box-shadow: 0px 2px 2px #ccc;
+  width: 100%;
+}
+.tabs.isFixed{
+  z-index:50;
+  left: 0;
+  top: 0;
+  position:fixed;
+  margin-top: 0px;
+  background-color: #fff;
+}
+.tabs ul {
+  display: flex;
+  width: 940px;
+  height: 55px;
+  align-items: center;
+  margin: 0px auto;
+}
+.tabs ul li{
+  cursor: pointer;
+  flex: 1;
+  color: #929292;
+  width: 2px;
+  text-align: center;
+  line-height: 65px;
+  height: 55px;
+  margin: 5px;
+  background: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.tabs ul li.active{
+  color: #333;
+  font-weight: bold;
+}
+.contents{min-height: 3030px;padding-bottom: 50px;width: 980px;margin: 50px auto}
+
   .banner{
     height: 647px;
     width: 100%;
