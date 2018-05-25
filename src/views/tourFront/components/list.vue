@@ -187,7 +187,7 @@ export default {
 }
 </script>
 <style scoped>
-  .list {width: 860px;margin: 0px auto;}
+  .list {width: 980px;margin: 0px auto;}
   .list{font-size: 0px;padding-bottom: 30px;overflow: hidden;}
   .list li dl{font-size: 14px;}
   .list li .title {
@@ -232,7 +232,7 @@ export default {
     height: 254px;
     box-shadow: 0px 1px 5px #666;
     float: left;
-    margin-left: 24px;
+    margin-left: 80px;
   }
   .list ul li img{width: 270px;height: 180px;display: inline-block;}
   .list ul li:nth-child(3n+1){

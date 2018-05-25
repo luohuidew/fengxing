@@ -6,7 +6,8 @@
         <router-link to="/"><img :src="logoPic" width="154" class="logo"/></router-link>
       </el-col>
       <el-col :span="12">
-        <ul>
+        <ul ref="navs">
+          <li><router-link to="/" exact >首页</router-link></li>
           <li><router-link to="/main/tuanJian" :class="{'router-link-active': typeClass==='tuanJian'}">团建方案</router-link></li>
           <li><router-link to="/main/lvYou" :class="{'router-link-active': typeClass==='lvYou'}">旅游方案</router-link></li>
           <li><router-link to="/main/huoDong" :class="{'router-link-active': typeClass==='huoDong'}">活动方案</router-link></li>
@@ -14,7 +15,7 @@
         </ul>
       </el-col>
       <el-col :span="8" >
-        <search></search>
+        <search @offNavigate = "offNavigate"></search>
       </el-col>
     </el-row>
   </header>
@@ -48,6 +49,16 @@ export default {
     })
   },
   methods: {
+    offNavigate() {
+      const navs = this.$refs.navs
+      if (navs) {
+        const childA = navs.querySelectorAll('a')
+        for (let i = 0; i < childA.length; i++) {
+          childA[i].className = ''
+        }
+      }
+
+    },
     handleSelect(key, keyPath) {
       // console.log('click menu:' + key, keyPath)
     }

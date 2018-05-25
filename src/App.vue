@@ -12,6 +12,7 @@ export default {
 <style>
   body {margin: 0px;}
   .el-main {padding: 0px;}
+  .el-header {padding: 0px}
   .search_wap .el-input__suffix {
     right: -4px;
   }

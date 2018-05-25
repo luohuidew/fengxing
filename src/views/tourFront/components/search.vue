@@ -38,6 +38,7 @@ export default {
   methods: {
     searchMeth() {
       const id = this.categoryId
+      this.$emit('offNavigate')
       if (id === '1') {
         this.$router.push({name: 'tuanJian', query: {searchValue: this.searchValue}})
       } else if (id === '2') {
