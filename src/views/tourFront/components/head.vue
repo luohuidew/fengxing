@@ -8,10 +8,10 @@
       <el-col :span="12">
         <ul ref="navs">
           <li><router-link to="/" exact >首页</router-link></li>
-          <li><router-link to="/main/tuanJian" :class="{'router-link-active': typeClass==='tuanJian'}">团建方案</router-link></li>
-          <li><router-link to="/main/lvYou" :class="{'router-link-active': typeClass==='lvYou'}">旅游方案</router-link></li>
-          <li><router-link to="/main/huoDong" :class="{'router-link-active': typeClass==='huoDong'}">活动方案</router-link></li>
-          <li><router-link to="/main/memory" :class="{'router-link-active': typeClass==='memory'}">美好回忆</router-link></li>
+          <li><router-link to="/main/tuanJian" @click.native='offNavigate' :class="{'router-link-active': typeClass==='tuanJian'}">团建方案</router-link></li>
+          <li><router-link to="/main/lvYou" @click.native='offNavigate' :class="{'router-link-active': typeClass==='lvYou'}">旅游方案</router-link></li>
+          <li><router-link to="/main/huoDong" @click.native='offNavigate' :class="{'router-link-active': typeClass==='huoDong'}">活动方案</router-link></li>
+          <li><router-link to="/main/memory" @click.native='offNavigate' :class="{'router-link-active': typeClass==='memory'}">美好回忆</router-link></li>
         </ul>
       </el-col>
       <el-col :span="8" >
@@ -62,6 +62,9 @@ export default {
     handleSelect(key, keyPath) {
       // console.log('click menu:' + key, keyPath)
     }
+  },
+  destroyed() {
+    bus.$off('NAGATION')
   }
 }
 </script>
