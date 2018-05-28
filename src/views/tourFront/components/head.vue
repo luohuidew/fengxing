@@ -57,7 +57,6 @@ export default {
           childA[i].className = ''
         }
       }
-
     },
     handleSelect(key, keyPath) {
       // console.log('click menu:' + key, keyPath)
